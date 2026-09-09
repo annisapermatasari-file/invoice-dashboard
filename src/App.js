@@ -1,6 +1,15 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
 import InvoiceDashboardPage from "./pages/InvoiceDashboardPage";
 
 export default function App() {
-  return <InvoiceDashboardPage />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/dashboard" element={<InvoiceDashboardPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
