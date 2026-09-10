@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { Plus, Mail, Phone } from "lucide-react";
+import { Plus, Mail, Phone, MapPin, Tag } from "lucide-react";
 import Shell from "../components/Shell";
 import { Avatar, AvatarFallback } from "../components/ui/avatar";
 import { fmtIDR, initials } from "../lib/format";
@@ -75,6 +75,14 @@ export default function KlienPage() {
               <div className="flex items-center gap-2">
                 <Phone className="h-3.5 w-3.5 shrink-0" />
                 <span>{c.phone}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="h-3.5 w-3.5 shrink-0" />
+                <span>{c.city}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Tag className="h-3.5 w-3.5 shrink-0" />
+                <span>{c.leadSource}</span>
               </div>
             </div>
 

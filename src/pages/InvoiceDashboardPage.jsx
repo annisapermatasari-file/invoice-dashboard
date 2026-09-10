@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { cn } from "../lib/utils";
 import { fmtIDR, initials } from "../lib/format";
+import { INVOICES } from "../lib/mockData";
 import Shell from "../components/Shell";
 import StatCard from "../components/StatCard";
 import {
@@ -33,72 +34,6 @@ const TABS = [
   { key: "lunas", label: "Lunas" },
   { key: "pending", label: "Pending" },
   { key: "jatuh_tempo", label: "Jatuh Tempo" },
-];
-
-const INVOICES = [
-  {
-    id: "INV-2025-0091",
-    client: "Kartika Wijaya",
-    email: "kartika.wijaya@gmail.com",
-    issued: "3 Sep 2025",
-    due: "17 Sep 2025",
-    amount: 24500000,
-    status: "lunas",
-  },
-  {
-    id: "INV-2025-0090",
-    client: "Bagus Setiawan",
-    email: "bagus.setiawan@outlook.com",
-    issued: "29 Agu 2025",
-    due: "12 Sep 2025",
-    amount: 18750000,
-    status: "pending",
-  },
-  {
-    id: "INV-2025-0089",
-    client: "Dewi Anggraini",
-    email: "dewi.anggraini@yahoo.com",
-    issued: "22 Agu 2025",
-    due: "5 Sep 2025",
-    amount: 32000000,
-    status: "jatuh_tempo",
-  },
-  {
-    id: "INV-2025-0088",
-    client: "Farhan Nugraha",
-    email: "farhan.nugraha@gmail.com",
-    issued: "18 Agu 2025",
-    due: "1 Sep 2025",
-    amount: 9800000,
-    status: "lunas",
-  },
-  {
-    id: "INV-2025-0087",
-    client: "Intan Permatasari",
-    email: "intan.permata@gmail.com",
-    issued: "14 Agu 2025",
-    due: "28 Agu 2025",
-    amount: 15250000,
-    status: "lunas",
-  },
-  {
-    id: "INV-2025-0086",
-    client: "Yusuf Maulana",
-    email: "yusuf.maulana@company.co.id",
-    issued: "9 Agu 2025",
-    due: "23 Agu 2025",
-    amount: 27300000,
-    status: "pending",
-  },
-  {
-    id: "INV-2025-0085",
-    client: "Ratna Puspitasari",
-    email: "ratna.puspita@gmail.com",
-    issued: "2 Agu 2025",
-    due: "16 Agu 2025",
-    amount: 12400000,
-    status: "jatuh_tempo",
-  },
 ];
 
 function StatusPill({ status }) {

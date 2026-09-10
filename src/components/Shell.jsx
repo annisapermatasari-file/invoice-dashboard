@@ -4,15 +4,7 @@ import {
   LayoutDashboard,
   FileText,
   Users,
-  Landmark,
-  ClipboardList,
-  PieChart,
-  CalendarDays,
-  PiggyBank,
-  Calculator,
-  TrendingUp,
-  LineChart,
-  Trophy,
+  Wallet2,
   Package,
   BarChart3,
   Settings,
@@ -36,28 +28,10 @@ import { Avatar, AvatarFallback } from "./ui/avatar";
 const NAV_GROUPS = [
   {
     items: [
-      { to: "/dashboard", label: "Ringkasan Tahunan", icon: LayoutDashboard },
+      { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
       { to: "/invoices", label: "Invoices", icon: FileText },
       { to: "/klien", label: "Klien", icon: Users },
-    ],
-  },
-  {
-    label: "Keuangan",
-    items: [
-      { to: "/bank", label: "Bank & Rekening", icon: Landmark },
-      { to: "/anggaran", label: "Anggaran Bulanan", icon: ClipboardList },
-      { to: "/distribusi", label: "Distribusi Pengeluaran", icon: PieChart },
-      { to: "/kalender", label: "Kalender Keuangan", icon: CalendarDays },
-    ],
-  },
-  {
-    label: "Perencanaan",
-    items: [
-      { to: "/dana-cadangan", label: "Dana Cadangan", icon: PiggyBank },
-      { to: "/kalkulator-utang", label: "Kalkulator Utang", icon: Calculator },
-      { to: "/kekayaan-bersih", label: "Kekayaan Bersih", icon: TrendingUp },
-      { to: "/investasi", label: "Investasi", icon: LineChart },
-      { to: "/tantangan", label: "Tantangan Menabung", icon: Trophy },
+      { to: "/pembayaran", label: "Pembayaran", icon: Wallet2 },
     ],
   },
   {
