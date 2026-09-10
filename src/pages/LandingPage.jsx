@@ -14,8 +14,17 @@ import {
   Check,
   ChevronDown,
   Quote,
+  PlayCircle,
 } from "lucide-react";
 import { cn } from "../lib/utils";
+import dashboardPreview from "../assets/dashboard-preview.png";
+
+const NAV_LINKS = [
+  { href: "#fitur", label: "Fitur" },
+  { href: "#harga", label: "Harga" },
+  { href: "#testimoni", label: "Testimoni" },
+  { href: "#faq", label: "FAQ" },
+];
 
 const FEATURES = [
   {
@@ -197,51 +206,105 @@ export default function LandingPage() {
       style={{ fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif" }}
     >
       {/* Nav */}
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600">
-            <Wallet className="h-4.5 w-4.5 text-white" />
+      <header className="sticky top-0 z-20 border-b border-slate-200/70 bg-slate-50/80 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600">
+              <Wallet className="h-4.5 w-4.5 text-white" />
+            </div>
+            <span className="text-lg font-bold tracking-tight text-slate-900">
+              Invoiqo
+            </span>
           </div>
-          <span className="text-lg font-bold tracking-tight text-slate-900">
-            Invoiqo
-          </span>
+
+          <nav className="hidden items-center gap-8 md:flex">
+            {NAV_LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-sm font-medium text-slate-600 hover:text-slate-900"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+
+          <Link
+            to="/dashboard"
+            className="inline-flex items-center gap-2 rounded-lg bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-800"
+          >
+            Buka Dashboard
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
-        <Link
-          to="/dashboard"
-          className="inline-flex items-center gap-2 rounded-lg bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-800"
-        >
-          Buka Dashboard
-          <ArrowRight className="h-4 w-4" />
-        </Link>
       </header>
 
       {/* Hero */}
-      <section className="mx-auto max-w-6xl px-6 pb-16 pt-10 text-center sm:pt-16">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3.5 py-1.5 text-xs font-semibold text-blue-600">
-          <Star className="h-3.5 w-3.5 fill-blue-600" />
-          Dibuat untuk lembaga kursus &amp; pelatihan
-        </span>
-        <h1 className="mx-auto mt-6 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl">
-          Kelola Invoice Lebih Rapi,
-          <br />
-          Pembayaran Lebih Lancar
-        </h1>
-        <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-600">
-          Invoiqo membantu Anda menerbitkan, melacak, dan menagih invoice
-          klien dalam satu dashboard yang bersih dan mudah dipakai.
-        </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link
-            to="/dashboard"
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-800"
-          >
-            Coba Dashboard Sekarang
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-          <span className="inline-flex items-center gap-1.5 text-sm text-slate-500">
-            <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-            Tanpa perlu daftar, langsung lihat demo
-          </span>
+      <section className="relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-blue-200/50 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-0 top-40 h-80 w-80 rounded-full bg-amber-200/40 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/3 top-0 h-64 w-64 rounded-full bg-emerald-200/40 blur-3xl"
+        />
+
+        <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 pb-20 pt-14 lg:grid-cols-2 lg:pt-20">
+          <div>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3.5 py-1.5 text-xs font-semibold text-blue-600">
+              <Star className="h-3.5 w-3.5 fill-blue-600" />
+              Dibuat untuk lembaga kursus &amp; pelatihan
+            </span>
+            <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl">
+              Kelola Invoice Lebih Rapi,
+              <br />
+              Pembayaran Lebih Lancar
+            </h1>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-slate-600">
+              Invoiqo membantu Anda menerbitkan, melacak, dan menagih invoice
+              klien dalam satu dashboard yang bersih dan mudah dipakai.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link
+                to="/dashboard"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-800"
+              >
+                Coba Dashboard Sekarang
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/dashboard"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 transition-colors hover:bg-slate-100"
+              >
+                <PlayCircle className="h-4 w-4" />
+                Lihat Demo
+              </Link>
+            </div>
+            <div className="mt-5 inline-flex items-center gap-1.5 text-sm text-slate-500">
+              <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+              Tanpa perlu daftar, langsung lihat demo
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl bg-white shadow-xl ring-1 ring-slate-900/[0.06]">
+              <div className="flex items-center gap-1.5 border-b border-slate-100 bg-slate-50 px-4 py-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              </div>
+              <img
+                src={dashboardPreview}
+                alt="Tampilan dashboard Invoiqo"
+                className="block w-full"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -260,7 +323,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section className="mx-auto max-w-6xl px-6 pb-20">
+      <section id="fitur" className="mx-auto max-w-6xl scroll-mt-20 px-6 pb-20">
         <div className="mx-auto max-w-xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
             Semua yang Anda butuhkan untuk urusan invoice
@@ -332,7 +395,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing */}
-      <section className="mx-auto max-w-6xl px-6 pb-20">
+      <section id="harga" className="mx-auto max-w-6xl scroll-mt-20 px-6 pb-20">
         <div className="mx-auto max-w-xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
             Harga sederhana, tanpa kejutan
@@ -425,7 +488,7 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="mx-auto max-w-6xl px-6 pb-20">
+      <section id="testimoni" className="mx-auto max-w-6xl scroll-mt-20 px-6 pb-20">
         <div className="mx-auto max-w-xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
             Dipercaya lembaga kursus di seluruh Indonesia
@@ -467,7 +530,7 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-3xl px-6 pb-20">
+      <section id="faq" className="mx-auto max-w-3xl scroll-mt-20 px-6 pb-20">
         <div className="mx-auto max-w-xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
             Pertanyaan yang sering diajukan
